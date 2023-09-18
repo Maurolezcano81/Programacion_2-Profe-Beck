@@ -37,6 +37,16 @@ class conexion{
         $this->desconectar();
         return $resultado;
     }
+
+    /* funcion para insertar a la base de datos*/
+    public function insertar($query){
+        $this->conectar();
+        $resultado = $this->_con->query($query);
+        $id = $this->_con->insert_id;
+        $this->desconectar();
+        return $id;
+    }
+
 }
 
 
